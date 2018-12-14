@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  structure XML type utilisée par les développeurs pour définir des beans
+ (c'est-à-dire des objets créés par un container).-->
+ 
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- ON DÉFINI NOTRE BEANS ICI : ################################### SOLUTION 1-->
+<!--    <bean id="personage" class="fr.wildcodeschool.thewizardproject.models.Gandalf">
+    </bean>
+--> 
+   
+<!--  ################################### SOLUTION 2 ################################### -->
+<!--  Pour indiquer à Spring qu'on va utiliser des annotations,
+	  on doit préciser le contexte -->
+	<context:component-scan base-package="fr.wildcodeschool.thewizardproject.models">
+    </context:component-scan>
+<!--  base-package="fr.wildcodeschool.thewizardproject.models 
+	  revient à dire à Spring qu'il doit scanner toutes les classes appartenant au package.
+	  C'est  l'équivalent de la configuration XML utilisée pour le bean -->
+
+</beans>
